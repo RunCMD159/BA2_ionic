@@ -7,11 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
+  <button (click)="runPerformanceTest()">Run Performance Test</button>
+  <ion-list #performanceDataList>
+    <ion-item *ngFor="let data of performanceData">{{data}}</ion-item>
   </ion-list>
+  <!--<ion-label>Running Time: {{runningTime}}</ion-label>-->
 </ion-content>
+
