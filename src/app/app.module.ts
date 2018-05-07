@@ -10,7 +10,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpClientModule } from '@angular/common/http';
+import { CameraComponent } from '../pages/native-hardware-test/camera/camera.component';
+import { LocationComponent } from '../pages/native-hardware-test/location/location.component';
+import { FileComponent } from '../pages/native-hardware-test/file/file.component';
+import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { File } from '@ionic-native/file'
 
 @NgModule({
   declarations: [
@@ -18,24 +24,33 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     PerformancePage,
     NativeHardwareTestPage,
-    TabsPage
+    TabsPage,
+    CameraComponent,
+    LocationComponent,
+    FileComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     PerformancePage,
     NativeHardwareTestPage,
+    CameraComponent,
+    LocationComponent,
+    FileComponent,
     HomePage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    Geolocation,
+    AndroidPermissions,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
