@@ -13,6 +13,7 @@ export class PerformancePage implements AfterViewChecked {
 
   performanceData: any = [];
   runningTime: number = 0;
+  data = [];
 
   private isPerformanceTestRunning: boolean = false;
   //time in milliseconds
@@ -24,7 +25,10 @@ export class PerformancePage implements AfterViewChecked {
   constructor(public navCtrl: NavController,
               private performanceService: PerformanceService,
               private changeDetector: ChangeDetectorRef) {
-
+    for (let i = 0; i < 10000; i++) {
+      this.data.push('TestString' + i);
+    }
+    alert(this.data.length + ' Testdaten erstellt');
   }
 
   ngAfterViewChecked(): void {
@@ -47,7 +51,7 @@ export class PerformancePage implements AfterViewChecked {
     this.performanceData = [];
     this.runningTime = 0;
     this.isPerformanceTestRunning = true;
-    this.performanceService.runPerformanceTest().subscribe((perfData) => {
+    this.performanceService.runPerformanceTest(this.data).subscribe((perfData) => {
       console.log('Performance Test Started');
       this.startTime = new Date().getTime();
       this.performanceData = perfData;

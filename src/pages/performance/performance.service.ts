@@ -16,11 +16,8 @@ export class PerformanceService {
     // return this.http.get("")
   }
 
-  public runPerformanceTest(): Observable<any> {
-    let data = [];
-    for (let i = 0; i < 10000; i++) {
-      data.push('TestString' + i);
-    }
+  public runPerformanceTest(data): Observable<any> {
+
     return Observable.create((observer) => {
       observer.next(data)
     });

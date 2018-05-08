@@ -180,7 +180,12 @@ var PerformancePage = (function () {
         this.changeDetector = changeDetector;
         this.performanceData = [];
         this.runningTime = 0;
+        this.data = [];
         this.isPerformanceTestRunning = false;
+        for (var i = 0; i < 10000; i++) {
+            this.data.push('TestString' + i);
+        }
+        alert(this.data.length + ' Testdaten erstellt');
     }
     PerformancePage.prototype.ngAfterViewChecked = function () {
         if (this.isPerformanceTestRunning) {
@@ -199,8 +204,9 @@ var PerformancePage = (function () {
         this.runWarmUpPhase();
         console.log('WarmUp Phase 2 has ended');
         this.performanceData = [];
+        this.runningTime = 0;
         this.isPerformanceTestRunning = true;
-        this.performanceService.runPerformanceTest().subscribe(function (perfData) {
+        this.performanceService.runPerformanceTest(this.data).subscribe(function (perfData) {
             console.log('Performance Test Started');
             _this.startTime = new Date().getTime();
             _this.performanceData = perfData;
@@ -219,10 +225,11 @@ var PerformancePage = (function () {
             providers: [__WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]],
             changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* ChangeDetectionStrategy */].OnPush
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]])
     ], PerformancePage);
     return PerformancePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=performance.js.map
@@ -413,11 +420,7 @@ var PerformanceService = (function () {
         });
         // return this.http.get("")
     };
-    PerformanceService.prototype.runPerformanceTest = function () {
-        var data = [];
-        for (var i = 0; i < 10000; i++) {
-            data.push('TestString' + i);
-        }
+    PerformanceService.prototype.runPerformanceTest = function (data) {
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
             observer.next(data);
         });
