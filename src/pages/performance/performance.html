@@ -7,10 +7,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-label>Running Time: {{runningTime}} ms</ion-label>
   <button (click)="runPerformanceTest()">Run Performance Test</button>
   <ion-list #performanceDataList>
     <ion-item *ngFor="let data of performanceData">{{data}}</ion-item>
   </ion-list>
-  <!--<ion-label>Running Time: {{runningTime}}</ion-label>-->
 </ion-content>
 

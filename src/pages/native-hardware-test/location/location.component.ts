@@ -22,7 +22,6 @@ export class LocationComponent implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.latitude = resp.coords.longitude;
       this.longitude = resp.coords.latitude;
-      alert(resp.coords.longitude)
     }).catch((error) => {
       alert(error.code + " " + error.message);
     });

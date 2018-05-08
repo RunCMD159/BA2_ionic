@@ -1,16 +1,18 @@
-import { AfterViewChecked, Component } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PerformanceService } from './performance.service';
 
 @Component({
   selector: 'page-performance',
   templateUrl: 'performance.html',
-  providers: [PerformanceService]
+  providers: [PerformanceService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class PerformancePage implements AfterViewChecked {
 
   performanceData: any = [];
-  runningTime: number;
+  runningTime: number = 0;
 
   private isPerformanceTestRunning: boolean = false;
   //time in milliseconds
@@ -20,7 +22,8 @@ export class PerformancePage implements AfterViewChecked {
 
 
   constructor(public navCtrl: NavController,
-              private performanceService: PerformanceService) {
+              private performanceService: PerformanceService,
+              private changeDetector: ChangeDetectorRef) {
 
   }
 
@@ -30,6 +33,8 @@ export class PerformancePage implements AfterViewChecked {
       console.log('Performance Test has ended');
       this.runningTime = this.endTime - this.startTime;
       console.log(this.runningTime);
+      this.changeDetector.markForCheck();
+      this.changeDetector.detectChanges();
     }
   }
 
@@ -40,6 +45,7 @@ export class PerformancePage implements AfterViewChecked {
     console.log('WarmUp Phase 2 has ended');
 
     this.performanceData = [];
+    this.runningTime = 0;
     this.isPerformanceTestRunning = true;
     this.performanceService.runPerformanceTest().subscribe((perfData) => {
       console.log('Performance Test Started');

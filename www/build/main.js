@@ -99,8 +99,8 @@ var NativeHardwareTestPage = (function () {
         this.navCtrl = navCtrl;
         this.androidPermissions = androidPermissions;
         this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA,
-            this.androidPermissions.PERMISSION.FINE_LOCATION,
             this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
+            this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
             this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION,
             this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION]);
     }
@@ -160,7 +160,7 @@ var HomePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerformancePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__performance_service__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__performance_service__ = __webpack_require__(276);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -174,10 +174,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var PerformancePage = (function () {
-    function PerformancePage(navCtrl, performanceService) {
+    function PerformancePage(navCtrl, performanceService, changeDetector) {
         this.navCtrl = navCtrl;
         this.performanceService = performanceService;
+        this.changeDetector = changeDetector;
         this.performanceData = [];
+        this.runningTime = 0;
         this.isPerformanceTestRunning = false;
     }
     PerformancePage.prototype.ngAfterViewChecked = function () {
@@ -186,6 +188,8 @@ var PerformancePage = (function () {
             console.log('Performance Test has ended');
             this.runningTime = this.endTime - this.startTime;
             console.log(this.runningTime);
+            this.changeDetector.markForCheck();
+            this.changeDetector.detectChanges();
         }
     };
     PerformancePage.prototype.runPerformanceTest = function () {
@@ -211,26 +215,27 @@ var PerformancePage = (function () {
     };
     PerformancePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-performance',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\performance\performance.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Performance\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <button (click)="runPerformanceTest()">Run Performance Test</button>\n  <ion-list #performanceDataList>\n    <ion-item *ngFor="let data of performanceData">{{data}}</ion-item>\n  </ion-list>\n  <!--<ion-label>Running Time: {{runningTime}}</ion-label>-->\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\performance\performance.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]]
+            selector: 'page-performance',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\performance\performance.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Performance\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-label>Running Time: {{runningTime}} ms</ion-label>\n  <button (click)="runPerformanceTest()">Run Performance Test</button>\n  <ion-list #performanceDataList>\n    <ion-item *ngFor="let data of performanceData">{{data}}</ion-item>\n  </ion-list>\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\performance\performance.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]],
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* ChangeDetectionStrategy */].OnPush
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]) === "function" && _c || Object])
     ], PerformancePage);
     return PerformancePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=performance.js.map
 
 /***/ }),
 
-/***/ 200:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -238,7 +243,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 223:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -246,20 +251,20 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_native_hardware_test_native_hardware_test__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_performance_performance__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_native_hardware_test_camera_camera_component__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_native_hardware_test_location_location_component__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_native_hardware_test_file_file_component__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_native_hardware_test_camera_camera_component__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_native_hardware_test_location_location_component__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_native_hardware_test_file_file_component__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_geolocation__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_android_permissions__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_file__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_file__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -333,7 +338,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 266:
+/***/ 267:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -379,7 +384,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 275:
+/***/ 276:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -429,7 +434,7 @@ var PerformanceService = (function () {
 
 /***/ }),
 
-/***/ 276:
+/***/ 277:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -479,7 +484,7 @@ var CameraComponent = (function () {
 
 /***/ }),
 
-/***/ 277:
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -511,7 +516,6 @@ var LocationComponent = (function () {
         this.geolocation.getCurrentPosition().then(function (resp) {
             _this.latitude = resp.coords.longitude;
             _this.longitude = resp.coords.latitude;
-            alert(resp.coords.longitude);
         }).catch(function (error) {
             alert(error.code + " " + error.message);
         });
@@ -534,13 +538,13 @@ var LocationComponent = (function () {
 
 /***/ }),
 
-/***/ 278:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_file__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_file__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -555,11 +559,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var FileComponent = (function () {
     function FileComponent(file) {
         this.file = file;
-        this.file.checkDir(this.file.dataDirectory, 'mydir')
-            .then(function (_) { return alert('Directory exists'); })
-            .catch(function (err) { return alert('Directory doesn\'t exist'); });
     }
     FileComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.file.createDir(this.file.dataDirectory, 'testdir', true).then(function (dir) {
+            alert('base: ' + _this.file.dataDirectory);
+            _this.file.writeFile(_this.file.dataDirectory + '/testdir', 'testFile.txt', 'FooBar')
+                .then(function (f) {
+                alert(f);
+                alert('Textdatei erstellt');
+            }).catch(function (error) {
+                alert(error.message);
+            });
+        });
     };
     FileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -574,5 +586,5 @@ var FileComponent = (function () {
 
 /***/ })
 
-},[200]);
+},[201]);
 //# sourceMappingURL=main.js.map
