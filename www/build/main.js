@@ -182,10 +182,6 @@ var PerformancePage = (function () {
         this.runningTime = 0;
         this.data = [];
         this.isPerformanceTestRunning = false;
-        for (var i = 0; i < 10000; i++) {
-            this.data.push('TestString' + i);
-        }
-        alert(this.data.length + ' Testdaten erstellt');
     }
     PerformancePage.prototype.ngAfterViewChecked = function () {
         if (this.isPerformanceTestRunning) {
@@ -196,6 +192,24 @@ var PerformancePage = (function () {
             this.changeDetector.markForCheck();
             this.changeDetector.detectChanges();
         }
+    };
+    PerformancePage.prototype.ionViewDidEnter = function () {
+        this.resetFields();
+        for (var i = 0; i < 10000; i++) {
+            this.data.push('TestString' + Math.floor((Math.random() * 10000) + 1));
+        }
+        alert('View Did Load');
+        this.isPerformanceTestRunning = false;
+    };
+    PerformancePage.prototype.resetFields = function () {
+        this.performanceData = [];
+        this.data = [];
+        this.changeDetector.markForCheck();
+        this.changeDetector.detectChanges();
+        this.runningTime = 0;
+    };
+    PerformancePage.prototype.ionViewDidLeave = function () {
+        this.resetFields();
     };
     PerformancePage.prototype.runPerformanceTest = function () {
         var _this = this;

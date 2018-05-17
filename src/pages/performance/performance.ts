@@ -25,11 +25,8 @@ export class PerformancePage implements AfterViewChecked {
   constructor(public navCtrl: NavController,
               private performanceService: PerformanceService,
               private changeDetector: ChangeDetectorRef) {
-    for (let i = 0; i < 10000; i++) {
-      this.data.push('TestString' + i);
-    }
-    alert(this.data.length + ' Testdaten erstellt');
   }
+
 
   ngAfterViewChecked(): void {
     if (this.isPerformanceTestRunning) {
@@ -40,6 +37,26 @@ export class PerformancePage implements AfterViewChecked {
       this.changeDetector.markForCheck();
       this.changeDetector.detectChanges();
     }
+  }
+
+  ionViewDidEnter() {
+    this.resetFields();
+    for (let i = 0; i < 10000; i++) {
+      this.data.push('TestString' + Math.floor((Math.random() * 10000) + 1));
+    }
+    this.isPerformanceTestRunning = false;
+  }
+
+  private resetFields() {
+    this.performanceData = [];
+    this.data = [];
+    this.changeDetector.markForCheck();
+    this.changeDetector.detectChanges();
+    this.runningTime = 0;
+  }
+
+  ionViewDidLeave() {
+   this.resetFields();
   }
 
   runPerformanceTest() {
