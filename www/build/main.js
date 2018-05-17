@@ -198,7 +198,6 @@ var PerformancePage = (function () {
         for (var i = 0; i < 10000; i++) {
             this.data.push('TestString' + Math.floor((Math.random() * 10000) + 1));
         }
-        alert('View Did Load');
         this.isPerformanceTestRunning = false;
     };
     PerformancePage.prototype.resetFields = function () {
@@ -213,10 +212,6 @@ var PerformancePage = (function () {
     };
     PerformancePage.prototype.runPerformanceTest = function () {
         var _this = this;
-        this.runWarmUpPhase();
-        console.log('WarmUp Phase 1 has ended');
-        this.runWarmUpPhase();
-        console.log('WarmUp Phase 2 has ended');
         this.performanceData = [];
         this.runningTime = 0;
         this.isPerformanceTestRunning = true;
@@ -224,13 +219,6 @@ var PerformancePage = (function () {
             console.log('Performance Test Started');
             _this.startTime = new Date().getTime();
             _this.performanceData = perfData;
-        });
-    };
-    PerformancePage.prototype.runWarmUpPhase = function () {
-        var _this = this;
-        this.performanceService.runWarmUpPhase().subscribe(function (warmUpData) {
-            console.log('WarmUp Phase Started');
-            _this.performanceData = warmUpData;
         });
     };
     PerformancePage = __decorate([

@@ -60,10 +60,6 @@ export class PerformancePage implements AfterViewChecked {
   }
 
   runPerformanceTest() {
-    this.runWarmUpPhase();
-    console.log('WarmUp Phase 1 has ended');
-    this.runWarmUpPhase();
-    console.log('WarmUp Phase 2 has ended');
 
     this.performanceData = [];
     this.runningTime = 0;
@@ -72,13 +68,6 @@ export class PerformancePage implements AfterViewChecked {
       console.log('Performance Test Started');
       this.startTime = new Date().getTime();
       this.performanceData = perfData;
-    })
-  }
-
-  runWarmUpPhase() {
-    this.performanceService.runWarmUpPhase().subscribe((warmUpData) => {
-      console.log('WarmUp Phase Started');
-      this.performanceData = warmUpData;
     })
   }
 
