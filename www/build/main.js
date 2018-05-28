@@ -567,20 +567,39 @@ var FileComponent = (function () {
     }
     FileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        alert(this.file.dataDirectory);
         this.file.createDir(this.file.dataDirectory, 'testdir', true).then(function (dir) {
             alert('base: ' + _this.file.dataDirectory);
-            _this.file.writeFile(_this.file.dataDirectory + '/testdir', 'testFile.txt', 'FooBar')
+            _this.file.writeFile(_this.file.dataDirectory + '/testdir', 'testFile.txt', 'FooBar', { replace: true })
                 .then(function (f) {
-                alert(f);
                 alert('Textdatei erstellt');
             }).catch(function (error) {
                 alert(error.message);
             });
         });
     };
+    FileComponent.prototype.loadFile = function () {
+        var _this = this;
+        this.file.readAsText(this.file.dataDirectory + '/testdir', 'testFile.txt')
+            .then(function (loadedFile) {
+            _this.fileText = loadedFile;
+            alert('loaded ' + _this.fileText);
+        }).catch(function (error) {
+            alert('Fehler beim lesen der Datei');
+        });
+    };
+    FileComponent.prototype.saveFile = function () {
+        alert(this.fileText);
+        this.file.writeFile(this.file.dataDirectory + '/testdir', 'testFile.txt', this.fileText, { replace: true })
+            .then(function (f) {
+            alert('Textdatei gespeichert');
+        }).catch(function (error) {
+            alert(error.message);
+        });
+    };
     FileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-file',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\file\file.component.html"*/'<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\file\file.component.html"*/
+            selector: 'app-file',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\file\file.component.html"*/'<ion-content>\n  <button (click)="loadFile()">Load</button>\n  <button (click)="saveFile()">Save</button>\n  <ion-textarea type="text" [(ngModel)]="fileText" placeholder="Textplatzhalter..."></ion-textarea>\n</ion-content>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\file\file.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_file__["a" /* File */]])
     ], FileComponent);
