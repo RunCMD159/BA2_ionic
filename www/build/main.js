@@ -63,7 +63,7 @@ var TabsPage = (function () {
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_1__native_hardware_test_native_hardware_test__["a" /* NativeHardwareTestPage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Performance" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Native Hardware Test" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\tabs\tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Performance" tabIcon="information-circle"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Native Hardware Test" tabIcon="contacts"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\tabs\tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -106,7 +106,7 @@ var NativeHardwareTestPage = (function () {
     }
     NativeHardwareTestPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-native-hardware-test',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\native-hardware-test.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Native Hardware Test\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <app-location></app-location>\n  <app-camera></app-camera>\n  <app-file></app-file>\n</ion-content>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\native-hardware-test.html"*/
+            selector: 'page-native-hardware-test',template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\native-hardware-test\native-hardware-test.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Native Hardware Test\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <app-location></app-location>\n\n  <app-camera></app-camera>\n\n  <app-file></app-file>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\native-hardware-test\native-hardware-test.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_android_permissions__["a" /* AndroidPermissions */]])
@@ -142,7 +142,7 @@ var HomePage = (function () {
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    This starter project comes with simple tabs-based layout for apps\n    that are going to primarily use a Tabbed UI.\n  </p>\n  <p>\n    Take a look at the <code>src/pages/</code> directory to add or change tabs,\n    update any existing page or create new pages.\n  </p>\n</ion-content>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    Diese Applikation wurde mit dem Ionic Framework und dem Angular Framework entwickelt.\n    Beim Wechsel in den zweiten Tab werden 10000 Testdaten generiert.\n    Zum Starten des Tests muss der "Test starten"-Button gedrückt werden.\n    Um den Test erneut durchführen zu können, muss in einen anderen Tab gewechselt\n    werden und wieder in den Tab des Performancetests zurück, welcher erneut 10000 Testdaten erzeugt.\n    Im dritten Tab kann die native Hardware des mobilen Endgerätes getestet werden.\n    Um die Standortdaten abzufragen muss der "Geodaten anzeigen"-Button gedrückt werden.\n    Mit dem "Foto aufnehmen"-Button wird die Kamera geöffnet und ein Foto kann aufgenommen werden.\n    Unter "Letzte Aufnahme" wird das vorher aufgenommene Bild angezeigt.\n    Beim Wechsel in den dritten Tab wurde eine Textdatei angelegt. Der Inhalt kann über den "Laden"-Button in das\n    Textfeld geladen werden. Dieser Inhalt kann nun verändert werden und über den "Speicher"-Button wieder in das\n    Dateisystem des mobilen Endgerätes gespeichert werden.\n  </p>\n  <p>\n    Take a look at the <code>src/pages/</code> directory to add or change tabs,\n    update any existing page or create new pages.\n  </p>\n</ion-content>\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], HomePage);
@@ -223,7 +223,7 @@ var PerformancePage = (function () {
     };
     PerformancePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-performance',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\performance\performance.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Performance\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-label>Running Time: {{runningTime}} ms</ion-label>\n  <button (click)="runPerformanceTest()">Run Performance Test</button>\n  <ion-list #performanceDataList>\n    <ion-item *ngFor="let data of performanceData">{{data}}</ion-item>\n  </ion-list>\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\performance\performance.html"*/,
+            selector: 'page-performance',template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\performance\performance.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Performance\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-label>Running Time: {{runningTime}} ms</ion-label>\n\n  <button (click)="runPerformanceTest()">Run Performance Test</button>\n\n  <ion-list #performanceDataList>\n\n    <ion-item *ngFor="let data of performanceData">{{data}}</ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\performance\performance.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__performance_service__["a" /* PerformanceService */]],
             changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* ChangeDetectionStrategy */].OnPush
         }),
@@ -382,7 +382,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\projects\BA2_ionic\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -478,7 +478,7 @@ var CameraComponent = (function () {
     };
     CameraComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-camera',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\camera\camera.component.html"*/'<ion-card>\n  <ion-card-content>\n    Hello World, this is my camera app\n\n    <button (click)="takePicture()">Take a Picture</button>\n\n    Latest Picture:\n    <img [src]="base64Image" *ngIf="base64Image" />\n  </ion-card-content>\n</ion-card>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\camera\camera.component.html"*/
+            selector: 'app-camera',template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\native-hardware-test\camera\camera.component.html"*/'<ion-card>\n  <ion-card-content>\n    <button (click)="takePicture()">Foto aufnehmen</button>\n\n    Letzte Aufnahme:\n    <img [src]="base64Image" *ngIf="base64Image" />\n  </ion-card-content>\n</ion-card>\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\native-hardware-test\camera\camera.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__["a" /* Camera */]])
     ], CameraComponent);
@@ -532,7 +532,7 @@ var LocationComponent = (function () {
     };
     LocationComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-location',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\location\location.component.html"*/'<button (click)="getGeolocation()">Geodaten anzeigen</button>\n<ion-label>{{latitude}}</ion-label>\n<ion-label>{{longitude}}</ion-label>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\location\location.component.html"*/
+            selector: 'app-location',template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\native-hardware-test\location\location.component.html"*/'<button (click)="getGeolocation()">Geodaten anzeigen</button>\n\n<ion-label>{{latitude}}</ion-label>\n\n<ion-label>{{longitude}}</ion-label>\n\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\native-hardware-test\location\location.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* Platform */]])
     ], LocationComponent);
@@ -599,7 +599,7 @@ var FileComponent = (function () {
     };
     FileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'app-file',template:/*ion-inline-start:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\file\file.component.html"*/'<ion-content>\n  <button (click)="loadFile()">Load</button>\n  <button (click)="saveFile()">Save</button>\n  <ion-textarea type="text" [(ngModel)]="fileText" placeholder="Textplatzhalter..."></ion-textarea>\n</ion-content>\n'/*ion-inline-end:"C:\Users\florian.schmuck\DEV\FH\projects\apps\BA2\ionic\ionicDemo\src\pages\native-hardware-test\file\file.component.html"*/
+            selector: 'app-file',template:/*ion-inline-start:"D:\projects\BA2_ionic\src\pages\native-hardware-test\file\file.component.html"*/'<ion-content>\n\n  <button (click)="loadFile()">Load</button>\n\n  <button (click)="saveFile()">Save</button>\n\n  <ion-textarea type="text" [(ngModel)]="fileText" placeholder="Textplatzhalter..."></ion-textarea>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\projects\BA2_ionic\src\pages\native-hardware-test\file\file.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_file__["a" /* File */]])
     ], FileComponent);
